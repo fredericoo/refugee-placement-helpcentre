@@ -10,8 +10,14 @@
     "postinstall": "remix setup node"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@remix-run/react": "^1.2.3",
     "@remix-run/vercel": "^1.2.3",
+    "@radix-ui/colors": "^0.1.8",
+    "axios": "^0.26.0",
+    "framer-motion": "^6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.2.3"
@@ -24,9 +30,53 @@
     "@types/react-dom": "^17.0.9",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "husky": "^7.0.4",
+    "jest": "^27.4.5",
+    "lint-staged": "^12.3.1"
   },
   "engines": {
     "node": ">=14"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "yarn run eslint --max-warnings 0 --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "rules": {
+      "type-case": [
+        2,
+        "always",
+        "lower-case"
+      ],
+      "type-empty": [
+        2,
+        "never"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "ci",
+          "chore",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "style",
+          "test"
+        ]
+      ]
+    },
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
