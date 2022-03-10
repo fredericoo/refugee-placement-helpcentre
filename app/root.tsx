@@ -1,5 +1,7 @@
-import type { MetaFunction } from 'remix';
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
+import { PrismicProvider } from '@prismicio/react';
+import { Link, Links, LiveReload, Meta, MetaFunction, Outlet, Scripts, ScrollRestoration } from 'remix';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 import ThemeProvider from './theme/Provider';
 
 export const meta: MetaFunction = () => {
@@ -16,9 +18,19 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <ThemeProvider>
-          <Outlet />
-        </ThemeProvider>
+        <PrismicProvider
+          internalLinkComponent={({ href, children, ...props }) => (
+            <Link to={href}>
+              <a {...props}>{children}</a>
+            </Link>
+          )}
+        >
+          <ThemeProvider>
+            <Navbar />
+            <Outlet />
+            <Footer />
+          </ThemeProvider>
+        </PrismicProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
