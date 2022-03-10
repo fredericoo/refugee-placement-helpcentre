@@ -1,15 +1,9 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "remix";
-import type { MetaFunction } from "remix";
+import type { MetaFunction } from 'remix';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
+import ThemeProvider from './theme/Provider';
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: 'Refugee placement help centre' };
 };
 
 export default function App() {
@@ -22,7 +16,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <ThemeProvider>
+          <Outlet />
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
