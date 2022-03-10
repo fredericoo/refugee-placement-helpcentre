@@ -1,0 +1,57 @@
+Arguments: 
+  /usr/local/bin/node /Users/fredericobatista/.yarn/bin/yarn.js
+
+PATH: 
+  /Users/fredericobatista/.yarn/bin:/Users/fredericobatista/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/fredericobatista/Library/Android/sdk/platform-tools:/Users/fredericobatista/.yarn/bin:/Users/fredericobatista/.config/yarn/global/node_modules/.bin:/Users/fredericobatista/.cargo/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/fredericobatista/Library/Caches/Yarn/v6/npm-ignore-4.0.6-750e3db5862087b4737ebac8207ffd1ef27b25fc-integrity/node_modules/ignore/README.md' -> '/Users/fredericobatista/SaltPay/refugee-placement-helpcentre/node_modules/@eslint/eslintrc/node_modules/ignore/README.md'
+
+npm manifest: 
+  {
+    "name": "remix-app-template",
+    "private": true,
+    "description": "",
+    "license": "",
+    "sideEffects": false,
+    "scripts": {
+      "build": "cross-env NODE_ENV=production remix build",
+      "dev": "cross-env NODE_ENV=development remix dev",
+      "postinstall": "remix setup node"
+    },
+    "dependencies": {
+      "@remix-run/react": "^1.2.3",
+      "@remix-run/vercel": "^1.2.3",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "remix": "^1.2.3"
+    },
+    "devDependencies": {
+      "@remix-run/dev": "^1.2.3",
+      "@remix-run/eslint-config": "^1.2.3",
+      "@remix-run/serve": "^1.2.3",
+      "@types/react": "^17.0.24",
+      "@types/react-dom": "^17.0.9",
+      "cross-env": "^7.0.3",
+      "eslint": "^8.9.0",
+      "typescript": "^4.5.5"
+    },
+    "engines": {
+      "node": ">=14"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
