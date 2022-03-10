@@ -1,31 +1,35 @@
 import { Box, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react';
-import { PrismicText } from '@prismicio/react';
+import { PrismicRichText, PrismicText } from '@prismicio/react';
 import { Link, useLoaderData } from 'remix';
 import BG from '~/components/BG';
-import { listCountries } from '~/lib/country.server';
+import { getHomePage, listCountries } from '~/lib/country.server';
 
 export const loader = async () => {
-  return await listCountries();
+  return {
+    homePage: await getHomePage(),
+    countries: await listCountries(),
+  };
 };
 
 export default function Index() {
-  const countries = useLoaderData<Awaited<ReturnType<typeof loader>>>();
+  const { countries, homePage } = useLoaderData<Awaited<ReturnType<typeof loader>>>();
 
   return (
     <>
-      <Stack minH="50vh" justify="center" bg="gray.2" borderBottom="1px solid" borderColor="gray.4">
-        <Container maxW="container.xl" position="relative">
+      <Box bg="gray.2" borderBottom="1px solid" borderColor="gray.4">
+        <Stack minH="50vh" px={4} justify="center" maxW="container.xl" position="relative" mx="auto">
           <Stack as="header" py={8} maxW="container.md" zIndex="1" position="relative">
-            <Heading as="h1" size="2xl" letterSpacing="tight" mb={4} color="primary.11">
-              If you are a Ukranian refugee and are seeking to emigrate to one of these countries, here are some tips to
-              ease your journey
-            </Heading>
-            <Text color="gray.11">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-            </Text>
+            {homePage.data.page_title && (
+              <Heading as="h1" size="2xl" letterSpacing="tight" mb={4} color="primary.11">
+                <PrismicText field={homePage.data.page_title} />
+              </Heading>
+            )}
+            {homePage.data.introduction && (
+              <Text as={PrismicRichText} field={homePage.data.introduction} color="gray.11" />
+            )}
           </Stack>
           <BG
+            p={8}
             zIndex="0"
             position="absolute"
             h="100%"
@@ -33,8 +37,8 @@ export default function Index() {
             bottom="0"
             color={{ base: 'primary.5', md: 'primary.8' }}
           />
-        </Container>
-      </Stack>
+        </Stack>
+      </Box>
       <Container maxW="container.xl" py={8}>
         <Text fontWeight="bold" fontSize="lg" mb={4}>
           I'm looking to emigrate to:
