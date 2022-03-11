@@ -9,7 +9,7 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ children, ...navLinkProps }) 
   return (
     <NavLink {...navLinkProps}>
       {({ isActive }) => (
-        <Box {...sidebar.tab} sx={isActive ? sidebar.tab._selected : {}}>
+        <Box {...sidebar.tab} data-selected={isActive ? 'true' : undefined}>
           {children}
         </Box>
       )}

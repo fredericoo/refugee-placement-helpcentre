@@ -1,19 +1,12 @@
 import { Box, Container, HStack } from '@chakra-ui/react';
 import { PrismicRichText } from '@prismicio/react';
-import { useLoaderData } from 'remix';
-import { getFooter } from '~/lib/country.server';
+import { RichTextField } from '@prismicio/types';
 
-export const loader = async () => {
-  return await getFooter();
-};
-
-const Navbar: React.VFC = () => {
-  const homePage = useLoaderData<Awaited<ReturnType<typeof loader>>>();
-
+const Navbar: React.VFC<{ text?: RichTextField }> = ({ text }) => {
   return (
     <Box py={4} borderTop="1px solid" borderColor="gray.4">
       <HStack as={Container} maxW="container.xl" fontSize="sm" color="gray.10">
-        <PrismicRichText field={homePage?.data?.disclaimer} />
+        <PrismicRichText field={text} />
       </HStack>
     </Box>
   );

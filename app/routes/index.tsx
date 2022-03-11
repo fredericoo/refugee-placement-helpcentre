@@ -41,7 +41,7 @@ export default function Index() {
       </Box>
       <Container maxW="container.xl" py={8}>
         <Text fontWeight="bold" fontSize="lg" mb={4}>
-          I'm looking to emigrate to:
+          <PrismicText field={homePage.data.emigrate} />
         </Text>
 
         <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={4}>

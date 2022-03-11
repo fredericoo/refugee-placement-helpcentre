@@ -41,7 +41,7 @@ const Slug: RouteComponent = () => {
             return (
               <Box key={index}>
                 {slice.primary.group_name && (
-                  <Heading as="h2" size="lg">
+                  <Heading as="h2" size="md" px={8} py={4} color="primary.9">
                     <PrismicText field={slice.primary.group_name} />
                   </Heading>
                 )}

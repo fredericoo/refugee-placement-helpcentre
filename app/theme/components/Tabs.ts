@@ -52,19 +52,20 @@ export const variantSidebar = {
     _hover: {
       bg: 'gray.3',
     },
-    ':not(:last-child)': { mb: 1 },
     _selected: {
       bg: 'primary.3',
       color: 'primary.10',
     },
-    fontSize: 'sm',
+    fontSize: { md: 'sm' },
     justifyContent: 'flex-start',
+    borderRadius: { base: 'md', md: 'none' },
+    mb: { base: 2, md: 0 },
   },
   tablist: {
     display: 'flex',
     flexDirection: 'column',
-    borderRight: '1px solid',
-    borderColor: 'gray.4',
+    borderRight: { md: '1px solid' },
+    borderColor: { md: 'gray.4' },
     pt: 4,
   },
   tabpanel: {

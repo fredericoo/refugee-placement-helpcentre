@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import ThemeProvider from './theme/Provider';
 
 export const meta: MetaFunction = () => {
-  return { title: 'Refugee placement help centre' };
+  return { title: 'Guidance for Ukranian Refugees' };
 };
 
 const ExternalLinkComponent: React.FC<LinkProps> = ({ href, children, ...props }) => (

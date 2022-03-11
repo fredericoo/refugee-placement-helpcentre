@@ -1,5 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
-import { mauve, mint, plum, tomato } from '@radix-ui/colors';
+import { blue, mauve, mint, tomato } from '@radix-ui/colors';
 import Badge from './components/Badge';
 import { Button } from './components/Button';
 import { Input } from './components/Input';
@@ -26,7 +26,7 @@ const theme = extendTheme({
   },
   colors: {
     gray: radixToChakraColour(mauve, 'mauve'),
-    primary: radixToChakraColour(plum, 'plum'),
+    primary: radixToChakraColour(blue, 'blue'),
     danger: radixToChakraColour(tomato, 'tomato'),
     success: radixToChakraColour(mint, 'mint'),
   },
